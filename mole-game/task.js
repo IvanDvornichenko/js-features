@@ -1,6 +1,30 @@
 const dead = document.getElementById('dead');
 const lost = document.getElementById('lost');
 
+const getHole = (index) => document.getElementById(`hole${index}`);
+for (let holeIndex = 1; holeIndex < 10; holeIndex++) {
+    let hole = getHole(holeIndex);
+    hole.onclick = () => {
+        if (hole.className.includes( 'hole_has-mole')) {
+            dead.textContent = Number(dead.textContent) + 1;
+        } else {
+            lost.textContent = Number(lost.textContent) + 1;
+        }
+        if (Number(dead.textContent) == 10) {
+            alert("Вы победили")
+            dead.textContent = 0
+            lost.textContent = 0  
+        }
+        
+        if (Number(lost.textContent) == 5) {
+            alert("Вы проиграли")  
+            dead.textContent = 0
+            lost.textContent = 0   
+        }
+    
+}}
+
+/*
 const hole1 = document.getElementById('hole1');
 const hole2 = document.getElementById('hole2');
 const hole3 = document.getElementById('hole3');
@@ -185,4 +209,4 @@ hole9.onclick = () => {
     }
 }
 
-
+*/
